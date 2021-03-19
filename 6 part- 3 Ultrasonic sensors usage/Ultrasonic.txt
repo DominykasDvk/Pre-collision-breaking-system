@@ -1,0 +1,21 @@
+#include <NewPing.h>
+
+
+#define TRIGGER_PIN 13
+#define ECHO_PIN 12
+#define MAX_DISTANCE 300
+
+NewPing sonar (TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); //ultrasonic jutiklio nuskaitymo funkcija
+
+
+void setup()
+{
+  Serial.begin(9600);
+}
+
+void loop (){
+  delay (50);
+  Serial.print("Atstumas: ");
+  Serial.print(sonar.ping_cm());
+  Serial.println("cm");
+  int dist_cm=sonar.ping_cm();
